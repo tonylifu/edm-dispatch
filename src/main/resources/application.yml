@@ -1,9 +1,70 @@
 spring:
   application:
     name: dispatch
-  kafka:
-    bootstrap-servers: localhost:9092
-    consumer:
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      properties:
+#        spring:
+#          json:
+#            value:
+#              default:
+#                type: com.edm.dispatch.model.OrderCreated
+#          deserializer:
+#            value:
+#              delegate:
+#                class: org.springframework.kafka.support.serializer.JsonDeserializer
 server:
   port: 9082
+kafka:
+  bootstrap-servers: localhost:9092
+
+#spring:
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      group-id: user-registration-group
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+#    consumer:
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#
+#server:
+#  port: 8080
+#
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driver-class-name: org.h2.Driver
+#    username: sa
+#    password: password
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+
+
+#spring:
+#  application:
+#    name: dispatch
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    consumer:
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+#      properties:
+#        spring:
+#          json:
+#            value:
+#              default:
+#                type: com.edm.dispatch.model.OrderCreated
+#        key:
+#          deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#        value:
+#          deserializer: org.springframework.kafka.support.serializer.JsonDeserializer

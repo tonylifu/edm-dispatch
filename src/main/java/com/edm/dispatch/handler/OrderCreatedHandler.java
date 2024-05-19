@@ -1,5 +1,6 @@
 package com.edm.dispatch.handler;
 
+import com.edm.dispatch.model.OrderCreated;
 import com.edm.dispatch.service.DispatchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,9 +16,10 @@ public class OrderCreatedHandler {
     @KafkaListener(
             id = "orderConsumerClient",
             topics = "order.created",
-            groupId = "dispatch.order.created.consumer"
+            groupId = "dispatch.order.created.consumer",
+            containerFactory = "kafkaListenerContainerFactory"
     )
-    public void listen(String payload) {
+    public void listen(OrderCreated payload) {
         log.info("Received => Payload: {}", payload);
         dispatchService.process(payload);
     }
